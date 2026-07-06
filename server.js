@@ -86,6 +86,9 @@ app.get("/health", (req, res) => {
 });
 
 app.post("/sync/order", (req, res) => {
+  console.log("SALLA WEBHOOK RECEIVED");
+  console.log(JSON.stringify(req.body, null, 2));
+
   const order = normalizeOrder(req.body);
 
   const index = orders.findIndex((item) => item.order_id === order.order_id);
